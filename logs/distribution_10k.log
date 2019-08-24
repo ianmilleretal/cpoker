@@ -1,0 +1,34 @@
+Trial number: 0
+Trial number: 1000
+Trial number: 2000
+Trial number: 3000
+Trial number: 4000
+Trial number: 5000
+Trial number: 6000
+Trial number: 7000
+Trial number: 8000
+Trial number: 9000
+Total Payoff Count:          25660867	Mean:         641.522
+Total Straight Flushes:           701	Mean:         0.017525
+Hands Containing:                 591	Probability:  0.014775
+
+Total 4 of a Kinds:             12123	Mean:         0.303075
+Hands Containing:                1343	Probability:  0.033575
+
+Total Fullhouses:               73703	Mean:         1.842575
+Hands Containing:               19339	Probability:  0.483475
+
+Total Flushes:                 101161	Mean:         2.529025
+Hands Containing:               25897	Probability:  0.647425
+
+Total Straights:               200061	Mean:         5.001525
+Hands Containing:               22310	Probability:  0.557750
+
+Total 3 of a Kinds:           1083355	Mean:         27.083875
+Hands Containing:               19624	Probability:  0.490600
+
+Total Two-Pairs:              2447751	Mean:         61.193775
+Hands Containing:               39430	Probability:  0.985750
+
+Total Pairs:                 21742012	Mean:         543.550300
+Hands Containing:               39993	Probability:  0.999825
