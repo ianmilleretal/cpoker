@@ -27,8 +27,8 @@ void Player::compose_turnin()
 */
 void Player::reset()
 {
-//    _Nothing_Payoffs_Player::_reset();
     this->_hand.reset();
     this->_num_payoffs = 0;
+    this->_num_nothing = 0;
     this->_num_payoffs_3c = 0;
 }

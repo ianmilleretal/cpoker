@@ -3,8 +3,13 @@
 
 void _Count_Payoffs_Player::add_payoff(Payoff* payoff)
 {
-    this->_payoffs[this->_num_payoffs] = payoff;
-    this->_num_payoffs++;
+    if (payoff->third == cards::NOTHING) {
+        this->_nothing[this->_num_nothing] = payoff;
+        this->_num_nothing++;
+    } else {
+        this->_payoffs[this->_num_payoffs] = payoff;
+        this->_num_payoffs++;
+    }
 }
 
 

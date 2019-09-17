@@ -13,10 +13,25 @@ void _Round_Chinese_Poker::take_round()
 {
     for (int i=0; i < this->_num_players; i++) {
         this->_players[i]->draw();
-        Payoff_Table::lookup((*this->_players[i]));
+        this->_payoffs_table.lookup((*this->_players[i]));
+        this->_nothing_table.lookup((*this->_players[i]));
         this->_players[i]->add_payoffs_3c(
             this->_payoffs_3c, _Base_Chinese_Poker::TOTAL_3C_PAYOFFS);
+        std::cout << this->_players[i]->get_num_payoffs() << std::endl;
+        std::cout << this->_players[i]->get_num_nothing() << std::endl;
+        std::cout << this->_players[i]->get_num_payoffs_3c() << std::endl;
+
+        int count = this->_players[i]->get_num_payoffs() +this->_players[i]->get_num_nothing();
+        if (count < 1287) {
+            std::cout << "ALERT!" << std::endl;
+        } else if (count > 1287) {
+            collision_check(this->_players[i]);
+        } else {
+            std::cout << "GOOD"
+        }
+//        exit(1);
 //        this->_players[i]->compose_turnin();
+
 //        Turnin result = this->_players[i]->get_turnin();
 /*
         std::cout << BITS(this->_players[i]->get_cards()) << "  hand" << std::endl;

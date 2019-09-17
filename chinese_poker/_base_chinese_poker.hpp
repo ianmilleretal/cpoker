@@ -16,6 +16,7 @@ private:
     static const std::string PAIRS_PATH;
     static const std::string TRIPS_PATH;
     static const std::string PAYOFFS_PATH;
+    static const std::string NOTHING_PATH;
     static const int NUM_PLAYERS;
     static const int DECK_SEED;
 
@@ -23,11 +24,14 @@ private:
     std::string _pairs_path;
     std::string _trips_path;
     std::string _payoffs_path;
+    std::string _nothing_path;
 
 
 protected:
     static const int TOTAL_3C_PAYOFFS = 3744 + 52;
 
+    Payoff_Table _payoffs_table;
+    Payoff_Table _nothing_table;
     Payoff _payoffs_3c[_Base_Chinese_Poker::TOTAL_3C_PAYOFFS];
     Player** _players;
     int _num_players;

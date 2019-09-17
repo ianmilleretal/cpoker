@@ -1,6 +1,6 @@
 #include "../card_cons.hpp"
-#include "gamma_trips.hpp"
-#include "gamma_pairs.hpp"
+#include "three_trips_composer.hpp"
+#include "three_dubs_composer.hpp"
 #include <iostream>
 #include <bitset>
 #include <utility>
@@ -10,8 +10,8 @@
 
 const int NUM_TOTAL_PAYOFFS = 1296420;
 const std::string I_FILE_NAME = "../bins/payoffs.bin";
-const std::string D_FILE_NAME = "../bins/gamma_pairs.bin";
-const std::string T_FILE_NAME = "../bins/gamma_trips.bin";
+const std::string D_FILE_NAME = "../bins/3c_pairs.bin";
+const std::string T_FILE_NAME = "../bins/3c_trips.bin";
 Payoff payoffs[NUM_TOTAL_PAYOFFS];
 
 

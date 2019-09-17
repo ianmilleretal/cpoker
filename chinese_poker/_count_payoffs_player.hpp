@@ -13,8 +13,10 @@ protected:
     static const int BINOMIAL_13_3 = 3796;
 
     Payoff* _payoffs[BINOMIAL_13_5];
+    Payoff* _nothing[BINOMIAL_13_5];
     Payoff* _payoffs_3c[BINOMIAL_13_3];
     int _num_payoffs;
+    int _num_nothing;
     int _num_payoffs_3c;
 
 
@@ -22,10 +24,12 @@ public:
     _Count_Payoffs_Player() :
         _Base_Player(),
         _num_payoffs(0),
+        _num_nothing(0),
         _num_payoffs_3c(0) {}
     _Count_Payoffs_Player(Deck* pdeck) :
         _Base_Player(pdeck),
         _num_payoffs(0),
+        _num_nothing(0),
         _num_payoffs_3c(0) {}
 
     void give();
@@ -38,6 +42,8 @@ public:
         {return this->_payoffs_3c;}
     int get_num_payoffs()
         {return this->_num_payoffs;}
+    int get_num_nothing()
+        {return this->_num_nothing;}
     int get_num_payoffs_3c()
         {return this->_num_payoffs_3c;}
 };

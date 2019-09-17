@@ -11,27 +11,31 @@
 class Payoff_Table
 {
 private:
-    Payoff_Table();
-    Payoff_Table(Payoff_Table &other);
-    Payoff_Table& operator=(Payoff_Table &other);
-    static void _award(Player &player, int key1, int key2, int key3);
-    
-    static Payoff_List _table
+    void _award(Player &player, int key1, int key2, int key3);
+    int _hash(int max);
+    int _hash(Card_Flags cards);
+
+
+protected:
+    Payoff _current;
+    Card_Flags _cards;
+    bool _is_initialized;
+
+    Payoff_List _table
         [cards::NUM_CARDS_PER_DECK]
         [cards::NUM_CARDS_PER_DECK]
         [cards::NUM_CARDS_PER_DECK];
-    static bool is_initialized;
+
 
 public:
-    static void initialize(const std::string &path);
-    static void initialize_verbose(const std::string &path);
-    static int hash(int max);
-    static int hash(Card_Flags cards);
-    static void insert(int index1, int index2, int index3);
-    static void lookup(Player &player);
+    Payoff_Table() :
+        _cards(0),
+        _is_initialized(false) {}
+    void initialize(const std::string &path);
+    void insert(int index1, int index2, int index3);
+    void lookup(Player &player);
 
-    static Payoff current;
-    static Card_Flags cards;
+
 };
 
 

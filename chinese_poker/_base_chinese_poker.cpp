@@ -8,6 +8,8 @@ const std::string _Base_Chinese_Poker::TRIPS_PATH =
     "../bins/3c_trips.bin";
 const std::string _Base_Chinese_Poker::PAYOFFS_PATH =
     "../bins/payoffs.bin";
+const std::string _Base_Chinese_Poker::NOTHING_PATH =
+    "../bins/nothing.bin";
 const int _Base_Chinese_Poker::NUM_PLAYERS = 4;
 const int _Base_Chinese_Poker::DECK_SEED = 255;
 
@@ -15,7 +17,8 @@ const int _Base_Chinese_Poker::DECK_SEED = 255;
 _Base_Chinese_Poker::_Base_Chinese_Poker() :
     _pairs_path(PAIRS_PATH),
     _trips_path(TRIPS_PATH),
-    _payoffs_path(PAYOFFS_PATH)
+    _payoffs_path(PAYOFFS_PATH),
+    _nothing_path(NOTHING_PATH)
 {
     this->_deck = new Deck;
     this->_deck->seed(_Base_Chinese_Poker::DECK_SEED);
@@ -59,7 +62,8 @@ _Base_Chinese_Poker::~_Base_Chinese_Poker()
 void _Base_Chinese_Poker::_initialize()
 {
     const int NUM_PAIRS_3C = 3744;
-    Payoff_Table::initialize(this->_payoffs_path);
+    this->_payoffs_table.initialize(this->_payoffs_path);
+    this->_nothing_table.initialize(this->_nothing_path);
     Reader read_pairs(this->_pairs_path);
     Reader read_trips(this->_trips_path);
     read_pairs.bin(this->_payoffs_3c);
