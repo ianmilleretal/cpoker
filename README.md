@@ -4,17 +4,13 @@
 Computational analysis of the exploitability of 'Chinese Poker' strategies 
 
 ## Preface
-All code in this repository is a work in progress. It was written in under a somewhat tight deadline and so is in dire need of refactoring. As well, there is one known bug remaining in the payoff composer section of the code (described below under 'Organization'), and while plenty of testing has been done, comprehensive unit tests have not been written yet. I am cautioning that what is published here is incomplete. That said, the authors will have more time to complete the project beginning September 1st of this year, 2019.
-
-## Methodology
+All code in this repository is a work in progress. It was written in under a somewhat tight deadline and so is in dire need of refactoring. Comprehensive unit tests have not been written yet. I caution that what is published here is incomplete. That said, the authors are continuing to work on this project remotely.
 
 ## Project Organization
 ### Alpha Beta Composer
 The payoff composer class composes all possible payoffs of five-card hands, otherwise known as alpha or beta payoffs. The payoff composer is not a part of the poker simulating program, and is only intended to generate a binary file containing every possible alpha/beta payoff. Each payoff will take as members the hand itself (a 64-bit integer type with the right 52-bits each representing one card of a 52 card deck, ascending in order), the rank of that hand, and a byte representing the payoff (pair, full house, three-of-a-kind, etc.). 
 
 Each composer class shares a parent with the base composer class, and the top level payoff composer virtually inherits from each (probably a poor decision on my part). Each composer has at least one public member function which generates and yields one payoff in order of greatest to least value, or lowest to highest rank (lower rank beats higher rank). So, each class is a generator. The base provides a getter function to the boolean is_finished. When one type of payoff has generated each of its combinations, it will flag is_finished as true.
-
-Currently, there is one known bug with the alpha/beta composer. The pair composer inherits from the two-pair, three-of-a-kind, and full house composers. Protected counters of those classes may not be reset properly resulting in collisions between generated payoffs of composer.two_of_a_kind(). Calling composer.two_of_a_kind() first circumvents the collisions, but then rank counter attributes incorrect values to each payoff. This means we could pursue an easy but hacky solution... but I'd rather not.
 
 ### Gamma Composer
 The gamma composers compose all three card payoffs, otherwise known as gamma payoffs. They do this in two modules, a gamma pairs composer and a gamma 'trips' or three-of-a-kind composer. Each is intended to generate a binary file of every possible gamma pair or gamma trips.
@@ -36,8 +32,16 @@ Players contain hands and lists of payoffs. Players send their hands to the look
 *Chinese Poker*
 The game module which deals cards to players, compares their turn-ins and awards points. This top-level module is one of the simplest as it turns out.
  
-
+ 
+# To Do
+- Simulator
+- Turn-in calculator
+- Strategic selection of turn-ins 
+- Sanity Checks
+- Unit Tests
+- Refactor and fix name conventions
 
 ##  Authors
 Adam Ray Coger
+
 Ian Miller
