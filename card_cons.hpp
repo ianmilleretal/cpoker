@@ -24,6 +24,7 @@ namespace cards
     const int NUM_CARDS_PER_DECK = 52;
     const int NUM_CARDS_PER_HAND = 13;
     const int NUM_CARDS_ALPHA_BETA = 5;
+    const int NUM_CARDS_PER_GAMMA = 3;
     const int NUM_CARDS_PAYOFF_1 = 5;
     const int NUM_CARDS_PAYOFF_2 = 5;
     const int NUM_CARDS_PAYOFF_3 = 3;
@@ -59,6 +60,7 @@ namespace cards
     const int COMBO_DUBS = 6;
 
     const Card_Flags ACE_OF_SPADES = 0x8000000000000;
+    const Card_Flags TWO_OF_CLUBS = 1;
 }
 
 
